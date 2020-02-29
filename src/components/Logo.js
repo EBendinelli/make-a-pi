@@ -1,9 +1,5 @@
 import React from 'react';
-import FileBase64 from 'react-file-base64';
-import Slider from '@material-ui/core/Slider';
-import Button from '@material-ui/core/Button';
-import NativeSelect from '@material-ui/core/NativeSelect';
-
+	
 function LogoRender(props){
 	console.log(props.overlay);
     return (
@@ -31,7 +27,7 @@ function LogoRender(props){
 }
 
 function OverlayRender(props){
-	if(props.overlay.gradient){
+	if(props.overlay.gradient === "gradient"){
 		return(
 			<g id="Gradient_Solid">
 				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="83.0248" y1="483.9043" x2="483.9043" y2="83.0248">
@@ -63,33 +59,9 @@ class Logo extends React.Component {
     super(props);
   }
 
-  setOpacity(event, value){
-  	console.log(value);
-  	this.setState(prevState => {
-	  let overlay = Object.assign({}, prevState.overlay);
-	  overlay.opacity = value/100;
-	  return { overlay };
-	})
-  }
-
-  setGradient(event){
-  	console.log(event);
-  	this.setState(prevState => {
-	  let overlay = Object.assign({}, prevState.overlay);
-	  overlay.gradient = event.target.value;
-	  return { overlay };
-	})
-  }
-
-  getFiles(image){
-    this.setState({ backgroundImage: image })
-  }
-
-   render() {
+  render() {
     return (
-	    <div className="app-logo-render">
-	    	<LogoRender image={this.props.logoProps.backgroundImage.base64} overlay={this.props.logoProps.overlay}/>
-	    </div>
+    	<LogoRender image={this.props.logoProps.backgroundImage.base64} overlay={this.props.logoProps.overlay}/>
     );
   }
 

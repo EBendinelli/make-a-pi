@@ -1,17 +1,13 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 import { withStyles } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles';
 import Logo from './Logo';
 import Form from './Form';
-
 
 const useStyles = theme => ({
   root: {
@@ -23,14 +19,16 @@ const useStyles = theme => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
 });
+
+const saveSvgAsPng = require('save-svg-as-png');
+
+function saveSvgToPngHandler(){
+  saveSvgAsPng.saveSvgAsPng(document.getElementById("logoSvg"), "PILogo.png");
+}
 
 
 class App extends React.Component {
@@ -45,7 +43,7 @@ class App extends React.Component {
     this.state = {
       backgroundImage: [],
       overlay : {
-        gradient: true,
+        gradient: "gradient",
         opacity: 0.5,
       }
     }
@@ -61,11 +59,11 @@ class App extends React.Component {
     })
   }
 
-  setGradient(event){
-    console.log(event);
+  setGradient(event, value){
+    
     this.setState(prevState => {
       let overlay = Object.assign({}, prevState.overlay);
-      overlay.gradient = event.target.value;
+      overlay.gradient = value;
       return { overlay };
     })
   }
@@ -83,24 +81,51 @@ class App extends React.Component {
     this.setState({ backgroundImage: image })
   }
 
+  renderGenerateImageButton(){
+    return(
+      <Button variant="contained" color="primary"
+        className="App-link"
+        href="#"
+        rel="noopener noreferrer"
+        onClick={saveSvgToPngHandler}
+      >
+        Download
+      </Button>
+    );
+  }
+
   render(){
     const { classes } = this.props;
     
     return (
-      <Grid container component="main"  className={classes.root}>
+      <Grid container component="main" className={classes.root}>
         <CssBaseline />
-        <Grid item xs={11} sm={8} md={3} component={Paper} elevation={6} square>
+        <Grid item xs={11} sm={8} md={3} component={Paper} elevation={6} square >
           <div className={classes.paper}>
-            <Typography component="h1" variant="h5">
-              Make your PI
+            <Typography component="h1" variant="h4" gutterBottom={true} paragraph={true}>
+                Make your PI
             </Typography>
-            <form className={classes.form} noValidate>
-              <Form logoProps={this.state} setOpacity={this.setOpacity} setGradient={this.setGradient} getFiles={this.getFiles}/>
-            </form>
+            <Typography  color="textSecondary" variant="body2">
+                A little tool to design your very own PI logo
+            </Typography>
+            <Divider variant="middle" style={{width: "100%", margin: "20px"}}/>
+            <Form logoProps={this.state} setOpacity={this.setOpacity} setGradient={this.setGradient} getFiles={this.getFiles}/>
+            {this.renderGenerateImageButton()}
           </div>
         </Grid>
-        <Grid item xs={false} sm={4} md={7}>
-          <Logo logoProps={this.state}/>
+        <Grid item xs={false} sm={4} md={9} >
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: '100vh' }}
+          >
+            <Grid item xs={6}>
+              <Logo logoProps={this.state}/>
+            </Grid>     
+          </Grid>
         </Grid>
       </Grid>
     );
