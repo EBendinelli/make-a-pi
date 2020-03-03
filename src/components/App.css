@@ -8,3 +8,11 @@
 .hidden{
   display:none;
 }
+
+.twitter-picker{
+	box-shadow:none !important;
+}
+
+.twitter-picker div{
+	padding: 0px !important;
+}
