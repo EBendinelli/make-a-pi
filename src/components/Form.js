@@ -8,17 +8,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import Box from '@material-ui/core/Box';
 import { TwitterPicker } from 'react-color';
-import { SketchPicker } from 'react-color';
-
 
 class Form extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
-    const { classes } = this.props;
-
     return (
       <Grid
         container

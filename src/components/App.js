@@ -76,41 +76,44 @@ class App extends React.Component {
   }
 
   calculateGradientColors(color){
-    console.log("ok");
-    this.state.overlay.color1.r = color.r+3 ;
-    this.state.overlay.color1.g = color.g ;
-    this.state.overlay.color1.b = color.b ;
-    this.state.overlay.color1.rgb = "rgb(" + this.state.overlay.color1.r + "," + this.state.overlay.color1.g + "," + this.state.overlay.color1.b + ")";
+    this.setState(prevState => {
+      let overlay = Object.assign({}, prevState.overlay);
+      overlay.color1.r = color.r+3;
+      overlay.color1.g = color.g ;
+      overlay.color1.b = color.b ;
+      overlay.color1.rgb = "rgb(" + overlay.color1.r + "," + overlay.color1.g + "," + overlay.color1.b + ")";
 
-    this.state.overlay.color2.r = color.r+13 ;
-    this.state.overlay.color2.g = color.g+1;
-    this.state.overlay.color2.b = color.b-1 ;
-    this.state.overlay.color2.rgb = "rgb(" + this.state.overlay.color2.r + "," + this.state.overlay.color2.g + "," + this.state.overlay.color2.b + ")";
+      overlay.color2.r = color.r+13 ;
+      overlay.color2.g = color.g+1;
+      overlay.color2.b = color.b-1 ;
+      overlay.color2.rgb = "rgb(" + overlay.color2.r + "," + overlay.color2.g + "," + overlay.color2.b + ")";
 
-    this.state.overlay.color3.r = color.r+30 ;
-    this.state.overlay.color3.g = color.g+2;
-    this.state.overlay.color3.b = color.b-3 ;
-    this.state.overlay.color3.rgb = "rgb(" + this.state.overlay.color3.r + "," + this.state.overlay.color3.g + "," + this.state.overlay.color3.b + ")";
+      overlay.color3.r = color.r+30 ;
+      overlay.color3.g = color.g+2;
+      overlay.color3.b = color.b-3 ;
+      overlay.color3.rgb = "rgb(" + overlay.color3.r + "," + overlay.color3.g + "," + overlay.color3.b + ")";
 
-    this.state.overlay.color4.r = color.r+54 ;
-    this.state.overlay.color4.g = color.g+4;
-    this.state.overlay.color4.b = color.b-5 ;
-    this.state.overlay.color4.rgb = "rgb(" + this.state.overlay.color4.r + "," + this.state.overlay.color4.g + "," + this.state.overlay.color4.b + ")";
+      overlay.color4.r = color.r+54 ;
+      overlay.color4.g = color.g+4;
+      overlay.color4.b = color.b-5 ;
+      overlay.color4.rgb = "rgb(" + overlay.color4.r + "," + overlay.color4.g + "," + overlay.color4.b + ")";
 
-    this.state.overlay.color5.r = color.r+85 ;
-    this.state.overlay.color5.g = color.g+7;
-    this.state.overlay.color5.b = color.b-8 ;
-    this.state.overlay.color5.rgb = "rgb(" + this.state.overlay.color5.r + "," + this.state.overlay.color5.g + "," + this.state.overlay.color5.b + ")";
+      overlay.color5.r = color.r+85 ;
+      overlay.color5.g = color.g+7;
+      overlay.color5.b = color.b-8 ;
+      overlay.color5.rgb = "rgb(" + overlay.color5.r + "," + overlay.color5.g + "," + overlay.color5.b + ")";
 
-    this.state.overlay.color6.r = color.r+122 ;
-    this.state.overlay.color6.g = color.g+10;
-    this.state.overlay.color6.b = color.b-11 ;
-    this.state.overlay.color6.rgb = "rgb(" + this.state.overlay.color6.r + "," + this.state.overlay.color6.g + "," + this.state.overlay.color6.b + ")";
+      overlay.color6.r = color.r+122 ;
+      overlay.color6.g = color.g+10;
+      overlay.color6.b = color.b-11 ;
+      overlay.color6.rgb = "rgb(" + overlay.color6.r + "," + overlay.color6.g + "," + overlay.color6.b + ")";
 
-    this.state.overlay.color7.r = color.r+165 ;
-    this.state.overlay.color7.g = color.g+13;
-    this.state.overlay.color7.b = color.b-15 ;
-    this.state.overlay.color7.rgb = "rgb(" + this.state.overlay.color7.r + "," + this.state.overlay.color7.g + "," + this.state.overlay.color7.b + ")";
+      overlay.color7.r = color.r+165 ;
+      overlay.color7.g = color.g+13;
+      overlay.color7.b = color.b-15 ;
+      overlay.color7.rgb = "rgb(" + overlay.color7.r + "," + overlay.color7.g + "," + overlay.color7.b + ")";
+      return { overlay };
+    });
 
   }
 
