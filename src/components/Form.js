@@ -9,15 +9,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Box from '@material-ui/core/Box';
 import { TwitterPicker } from 'react-color';
 import { SketchPicker } from 'react-color';
-import { withStyles } from '@material-ui/core/styles';
 
-const useStyles = theme => ({
-  form: {
-    margin: theme.spacing(6),
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-});
 
 class Form extends React.Component {
   constructor(props) {
@@ -34,7 +26,7 @@ class Form extends React.Component {
         justify="center"
         alignItems="stretch"
         spacing={4}
-        classeName={classes.form}
+        
       >
         <Grid item >
           <FormLabel component="legend" m={2} >Select background image</FormLabel>
@@ -87,4 +79,4 @@ class Form extends React.Component {
 
 }
 
-export default withStyles(useStyles)(Form)
+export default Form;

@@ -8,7 +8,7 @@ function LogoRender(props){
           viewBox="0 0 566.93 566.93" xmlSpace="preserve" id="logoSvg">
           <defs>
             <pattern id="image" patternUnits="userSpaceOnUse" height="800" width="800">
-              <image x="0" y="0"  width="100%" height="100%" preserveAspectRatio="xMidYMid slice" 
+              <image x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" 
               xlinkHref={props.image}></image>
             </pattern>
           </defs>
@@ -41,7 +41,7 @@ function OverlayRender(props){
 					<stop  offset="0.8809" style={{stopColor: props.overlay.color6.rgb }}/>
 					<stop  offset="0.999" style={{stopColor: props.overlay.color7.rgb }}/>
 				</linearGradient>
-				<circle id='top'  fill="url(#image)" cx="283.46" cy="283.46" r="283.46"/>
+				<circle fill="url(#image)" cx="283.46" cy="283.46" r="283.46"/>
 				<circle style={{fill:"url(#SVGID_1_)", opacity: props.overlay.opacity}} cx="283.46" cy="283.46" r="283.46"/>
 			</g>
 		);	
@@ -63,8 +63,10 @@ class Logo extends React.Component {
 
 
   render() {
+  	console.log(this.props.logoProps);
     return (
     	<LogoRender image={this.props.logoProps.backgroundImage.base64} overlay={this.props.logoProps.overlay}/>
+
     );
   }
 

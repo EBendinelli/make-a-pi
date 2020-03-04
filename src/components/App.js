@@ -167,6 +167,9 @@ class App extends React.Component {
             <Divider variant="middle" style={{width: "100%", margin: "20px"}}/>
             <Form logoProps={this.state} setOpacity={this.setOpacity} setGradient={this.setGradient} setColor={this.setColor} getFiles={this.getFiles}/>
             {this.renderGenerateImageButton()}
+            <Typography  color="textSecondary" variant="body2" style={{marginTop: "20px"}}>
+                (This might take some time if your image is large)
+            </Typography>
           </div>
         </Grid>
         <Grid item xs={false} sm={4} md={9} >
