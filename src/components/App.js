@@ -156,7 +156,7 @@ class App extends React.Component {
     return (
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
-        <Grid item xs={11} sm={8} md={3} component={Paper} elevation={6} square >
+        <Grid item xs={12} sm={5} md={3} component={Paper} elevation={6} square >
           <div className={classes.paper}>
             <Typography component="h1" variant="h4" gutterBottom={true} paragraph={true}>
                 Make a PI!
@@ -172,14 +172,13 @@ class App extends React.Component {
             </Typography>
           </div>
         </Grid>
-        <Grid item xs={false} sm={4} md={9} >
+        <Grid item xs={12} sm={7} md={9} >
           <Grid
             container
             spacing={0}
             direction="column"
             alignItems="center"
             justify="center"
-            style={{ minHeight: '100vh' }}
           >
             <Grid item xs={6}>
               <Logo logoProps={this.state}/>
