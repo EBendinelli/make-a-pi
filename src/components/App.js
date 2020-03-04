@@ -179,6 +179,7 @@ class App extends React.Component {
             direction="column"
             alignItems="center"
             justify="center"
+            style={{ minHeight: '100vh'}}
           >
             <Grid item xs={6}>
               <Logo logoProps={this.state}/>
