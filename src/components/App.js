@@ -159,7 +159,7 @@ class App extends React.Component {
         <Grid item xs={11} sm={8} md={3} component={Paper} elevation={6} square >
           <div className={classes.paper}>
             <Typography component="h1" variant="h4" gutterBottom={true} paragraph={true}>
-                Make your PI
+                Make a PI!
             </Typography>
             <Typography  color="textSecondary" variant="body2">
                 A little tool to design your very own PI logo
