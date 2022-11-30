@@ -185,7 +185,7 @@ class App extends React.Component {
             style={{ minHeight: '100vh'}}
           >
             <Grid item xs={6}>
-              <Logo logoProps={this.state}/>
+              <Logo logoProps={this.state} style={{ minHeight: '100vh'}}/>
             </Grid>     
           </Grid>
         </Grid>
