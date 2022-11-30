@@ -184,7 +184,7 @@ class App extends React.Component {
             justify="center"
             style={{ minHeight: '100vh'}}
           >
-            <Grid item xs={6} style={{ min-width: '100vh'}}>
+            <Grid item xs={6} style={{ minWidth: '100vh'}}>
               <Logo logoProps={this.state}/>
             </Grid>     
           </Grid>
